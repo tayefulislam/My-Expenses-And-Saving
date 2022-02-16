@@ -1,7 +1,8 @@
 /* common css */
 
-body{
-    margin: 10px 50px;
+body{  
+    overflow-x: hidden;
+   
 }
 
 h1{
@@ -35,15 +36,14 @@ input{
     border-radius: 10px;
     padding: 8px;
     margin-top: 10px;
-    border: 0;   
+    border: 0; 
+
+    
+   
 }
 
 /* img section */
 
-image{
-    height: 80%;
-    
-}
 
 
 /* calculation section */
@@ -58,11 +58,7 @@ button{
     border: 0;  
 }
 
-.btn-center{
-    margin: 0 230px;
-    margin-top: 10px;
-    
-}
+
 
 .section-calc{
     background-color: aliceblue;
@@ -79,10 +75,17 @@ button{
 
 @media (max-width:600px) {
 
-    .btn-center{
-        margin: 0 130px;
-        margin-top: 10px;
-        
+    .section-img{
+        width: 100%;
+
     }
 
+    .section-calc{
+    
+        width: 100%;
+         
+    }
+    
+
 }
+
