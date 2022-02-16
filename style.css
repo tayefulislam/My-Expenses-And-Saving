@@ -1,0 +1,38 @@
+h1{
+    color: brown;
+}
+
+input{
+    background-color: rgba(187, 224, 241, 0.863);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    border: 0;
+    
+}
+
+h2{
+    margin-top: 10px;
+
+}
+
+button{
+
+    background-color: rgb(0, 162, 255);
+    color: white;
+    margin-top: 20px;
+    padding: 10px 12px;
+    border-radius: 5px;
+    border: 0;
+    
+    
+}
+.btn-center{
+    margin: 0 100px;
+}
+
+p{
+    font-size: 20px;
+    font-weight: 400;   
+}
+
