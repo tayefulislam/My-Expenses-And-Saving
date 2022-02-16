@@ -32,54 +32,53 @@
 
     <!-- header section -->
     <header>
-        <h1>My Expenses & Saving</h1>
+        <h1 class="mb-5">My Expenses & Saving</h1>
     </header>
 
-    <main class=" container row">
+    <main>
 
-        <!-- img section -->
-        <section class="col-12 col-lg-6 ">
+        <section class=" row">
+            <!-- img section -->
+            <section class=" col-12 col-lg-6 mb-5 ">
 
-            <div><img class="img-fluid" src="img/exp01.jpg" alt=""></div>
-
-        </section>
-
-        <section class="col-12 col-lg-6">
-            <div class="">
-
-                <div class="">
-
-                    <h3 class="text-2xl font-bold">Income</h3>
-                    <p class="text-lg font-semibold">Income:
-                        <input id="income" class="font-sm font-medium" type="text" value="1000">
-                    </p>
-
-                </div>
-                <div class="">
-                    <h3 class="">Expenses</h3>
-                    <p class="">Food: <input class="" type="text" value="500"></p>
-                    <p class="">Rent: <input class="" type="text" value="300"></p>
-                    <p class="">Clothes: <input class="" type="text" value="400">
-                    </p>
-                    <button class="btn-center">Calculate</button>
-                </div>
-                <div class="">
-                    <h2 class="">Total Expenses: <span>5000</span></h2>
-                    <h2 class="">Balance: <span>4500</span></h2>
+                <div><img class=" img-fluid" src="img/exp01.jpg" alt="">
                 </div>
 
-                <div>
-                    <div class="">
-                        <p class="">Save : <input type="text"> % <button class="">Save</button></p>
+            </section>
+
+            <!-- calculate section -->
+            <section class="col-12 col-lg-6 mb-5">
+                <div class="section-calc">
+
+                    <div>
+
+                        <h3>Income</h3>
+                        <p>Income:
+                            <input id="income" type="text" value="1000">
+                        </p>
+
+
+                        <h3>Expenses</h3>
+                        <p>Food: <input" type="text" value="500">
+                        </p>
+                        <p>Rent: <input type="text" value="300"></p>
+                        <p>Clothes: <input type="text" value="400">
+                        </p>
+                        <button class="btn-center">Calculate</button>
+
+                        <h2>Total Expenses: <span>5000</span></h2>
+                        <h2>Balance: <span>4500</span></h2>
+
+
+                        <p>Save : <input type="text"> % <button>Save</button></p>
+
+                        <h2>Saving Amount: 2000 </h2>
+                        <h2>Remaining Balance: 2500 </h2>
+
                     </div>
 
-                    <div class="">
-                        <h2 class="">Saving Amount: 2000 </h2>
-                        <h2 class="">Remaining Balance: 2500 </h2>
-                    </div>
                 </div>
-
-            </div>
+            </section>
         </section>
 
     </main>
