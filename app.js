@@ -36,16 +36,32 @@ function calculate() {
     let balance = sum(income, totalEx);
 
     // check error
-    if (isNaN(income) || isNaN(totalEx) || income < 0 || food < 0 || cloths < 0 || rent < 0) {
+    if (isNaN(income) || isNaN(totalEx)) {
 
         // error hide and show
         errorCheck('valid-number', 'block')
         errorCheck('small-number', 'none')
+        errorCheck('positive-number', 'none')
         // set inner text
         setInnerText('total-ex', 0);
         setInnerText('balance', 0)
         return;
     }
+
+    else if (income < 0 || food < 0 || cloths < 0 || rent < 0) {
+
+        // error hide and show
+
+        errorCheck('positive-number', 'block')
+        errorCheck('small-number', 'none')
+        errorCheck('valid-number', 'none')
+
+        // set inner text
+        setInnerText('total-ex', 0);
+        setInnerText('balance', 0)
+        return;
+    }
+
 
     else {
 
@@ -53,6 +69,7 @@ function calculate() {
             // error hide and show
             errorCheck('small-number', 'block')
             errorCheck('valid-number', 'none')
+            errorCheck('positive-number', 'none')
             // set inner text
             setInnerText('total-ex', 0);
             setInnerText('balance', 0)
@@ -63,6 +80,7 @@ function calculate() {
             // error hide and show
             errorCheck('small-number', 'none')
             errorCheck('valid-number', 'none')
+            errorCheck('positive-number', 'none')
 
             // set inner text
             setInnerText('total-ex', totalEx);
@@ -84,10 +102,25 @@ document.getElementById('save-btn').addEventListener('click', function () {
     let remain = sum(balance, save);
 
     // error check
-    if (isNaN(income) || isNaN(saveInput) || income < 0 || save < 0) {
+    if (isNaN(income) || isNaN(saveInput)) {
         // error hide and show
         errorCheck('valid-percent', 'block')
         errorCheck('small-percent', 'none')
+        errorCheck('positive-number2', 'none')
+
+
+
+        // setInnerText
+        setInnerText('saving', 0);
+        setInnerText('remaining', 0);
+        return;
+    }
+    // error check
+    else if (income < 0 || save < 0) {
+        // error hide and show
+        errorCheck('valid-percent', 'none')
+        errorCheck('small-percent', 'none')
+        errorCheck('positive-number2', 'block')
 
         // setInnerText
         setInnerText('saving', 0);
@@ -95,11 +128,13 @@ document.getElementById('save-btn').addEventListener('click', function () {
         return;
     }
 
+    // saving jodi balance theke beshi hoy
 
     else if (balance < save) {
         // error hide and show
-        errorCheck('valid-percent', 'none')
-        errorCheck('small-percent', 'block')
+        errorCheck('valid-percent', 'none');
+        errorCheck('small-percent', 'block');
+        errorCheck('positive-number2', 'none');
         // setInnerText
         setInnerText('saving', 0);
         setInnerText('remaining', 0);
@@ -109,8 +144,10 @@ document.getElementById('save-btn').addEventListener('click', function () {
 
     else {
         // error hide and show
-        errorCheck('valid-percent', 'none')
-        errorCheck('small-percent', 'none')
+        errorCheck('valid-percent', 'none');
+        errorCheck('small-percent', 'none');
+        errorCheck('positive-number2', 'none')
+
         // setInnerText
         setInnerText('saving', save);
         setInnerText('remaining', remain);
