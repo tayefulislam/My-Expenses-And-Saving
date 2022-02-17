@@ -1,4 +1,9 @@
-//Common funtions
+function errorCheck(eName, valuee) {
+    document.getElementById(eName).style.display = valuee;
+
+
+}
+
 
 // sum calculte
 function sum(num1, num2) {
@@ -6,28 +11,17 @@ function sum(num1, num2) {
     return remain;
 }
 
-//getitem: input value
+//getitem 
 function getItem(item) {
-    let itemValue = document.getElementById(item).value;
-
-    // return parseFloat(itemValue);
-    return Number(itemValue)
-
-
-
+    let itemValue = parseInt(document.getElementById(item).value);
+    return itemValue;
 }
-
 
 // set innetTex
 function setInnerText(item, value) {
     let itemText = document.getElementById(item);
-    itemText.innerText = parseFloat(value).toFixed(2);
-}
 
-// check error funtion
-function errorCheck(eName, valuee) {
-    document.getElementById(eName).style.display = valuee;
-
+    itemText.innerText = value;
 }
 
 // calculate function
@@ -37,17 +31,21 @@ function calculate() {
     let food = getItem('food');
     let rent = getItem('rent');
     let cloths = getItem('cloths');
-
     let totalEx = food + rent + cloths;
     let balance = sum(income, totalEx);
 
-    // check error
-    if (isNaN(income) || isNaN(totalEx) || income < 0 || food < 0 || cloths < 0 || rent < 0) {
-
-        // error hide and show
+    if (isNaN(income) || isNaN(totalEx)) {
+        // document.getElementById('valid-number').style.display = 'block';
         errorCheck('valid-number', 'block')
-        errorCheck('small-number', 'none')
-        // set inner text
+        setInnerText('total-ex', 0);
+        setInnerText('balance', 0)
+        return;
+    }
+    else if (income < 0 || food < 0 || cloths < 0 || rent < 0) {
+
+        // document.getElementById('valid-number').style.display = 'block';
+
+        errorCheck('valid-number', 'block')
         setInnerText('total-ex', 0);
         setInnerText('balance', 0)
         return;
@@ -56,17 +54,22 @@ function calculate() {
     else {
 
         if (income < totalEx) {
-            // error hide and show
+            // document.getElementById('small-number').style.display = 'block';
+            // document.getElementById('valid-number').style.display = 'none';
+
             errorCheck('small-number', 'block')
             errorCheck('valid-number', 'none')
-            // set inner text
+
             setInnerText('total-ex', 0);
             setInnerText('balance', 0)
             return;
         }
 
         else {
-            // error hide and show
+
+            // document.getElementById('small-number').style.display = 'none';
+            // document.getElementById('valid-number').style.display = 'none';
+
             errorCheck('small-number', 'none')
             errorCheck('valid-number', 'none')
 
@@ -74,12 +77,11 @@ function calculate() {
             setInnerText('total-ex', totalEx);
             setInnerText('balance', balance)
         }
-
     }
 }
 
 
-// saving calculate by eventlisner
+// save calculate by eventlisner
 
 document.getElementById('save-btn').addEventListener('click', function () {
 
@@ -89,23 +91,47 @@ document.getElementById('save-btn').addEventListener('click', function () {
     let balance = parseInt(document.getElementById('balance').innerText);
     let remain = sum(balance, save);
 
-    // error check
-    if (isNaN(income) || isNaN(saveInput) || income < 0 || save < 0) {
-        // error hide and show
+
+    if (isNaN(income) || isNaN(saveInput)) {
+
+        // document.getElementById('valid-percent').style.display = 'block';
+        // document.getElementById('small-percent').style.display = 'none';
+
         errorCheck('valid-percent', 'block')
         errorCheck('small-percent', 'none')
 
-        // setInnerText
+
+
         setInnerText('saving', 0);
         setInnerText('remaining', 0);
         return;
+
+    }
+
+    else if (income < 0 || save < 0) {
+
+        // document.getElementById('valid-percent').style.display = 'block';
+        // document.getElementById('small-percent').style.display = 'none';
+
+        // error check by funtion
+        errorCheck('valid-percent', 'block')
+        errorCheck('small-percent', 'none')
+
+        setInnerText('saving', 0);
+        setInnerText('remaining', 0);
+
+        return
+
     }
 
     else if (remain < 0) {
-        // error hide and show
+        // document.getElementById('valid-percent').style.display = 'none';
+
+        // document.getElementById('small-percent').style.display = 'block';
+
         errorCheck('valid-percent', 'none')
         errorCheck('small-percent', 'block')
-        // setInnerText
+
         setInnerText('saving', 0);
         setInnerText('remaining', 0);
         return;
@@ -117,19 +143,19 @@ document.getElementById('save-btn').addEventListener('click', function () {
 
     else {
 
-        // error hide and show
+        // document.getElementById('valid-percent').style.display = 'none';
+        // document.getElementById('small-percent').style.display = 'none';
+
         errorCheck('valid-percent', 'none')
         errorCheck('small-percent', 'none')
 
 
 
 
-        // setInnerText
+        //set inner text
         setInnerText('saving', save);
         setInnerText('remaining', remain);
 
     }
-
-
 
 })

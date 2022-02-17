@@ -54,24 +54,24 @@
 
                         <h3>Income</h3>
                         <p>Income:
-                            <input id="income" type="text" value="">
+                            <input id="income" type="tex" value="0">
                         </p>
 
 
                         <h3>Expenses</h3>
 
-                        <p>Food: <input id="food" type="text" value="">
+                        <p>Food: <input id="food" type="text" value="0">
                         </p>
-                        <p>Rent: <input id="rent" type="text" value=""></p>
+                        <p>Rent: <input id="rent" type="text" value="0"></p>
 
-                        <p>Clothes: <input id="cloths" type="text" value="">
+                        <p>Clothes: <input id="cloths" type="text" value="0">
                         </p>
-                        <p><button onclick="calculate()" id="calc-btn" class="btn-center">Calculate</button>
+                        <p><button onclick="calculate()" class="btn-center">Calculate</button>
                         </p>
 
                         <h4 id="valid-number">Plese enter a valid number</h4>
 
-                        <h4 id="small-number">Total Expenses can't grater than Income</h4>
+                        <h4 id="small-number">Total Expenses can't greater than Income</h4>
 
                         <h2>Total Expenses: <span id="total-ex">00</span></h2>
                         <h2>Balance: <span id="balance">00</span></h2>
@@ -81,7 +81,7 @@
                                 id="save-btn">Save</button>
                         </p>
                         <h4 id="valid-percent">Plese enter a valid number</h4>
-                        <h4 id="small-percent">Remaining Balance can't be Nagative Number</h4>
+                        <h4 id="small-percent">Remaining Balance can't be less than Zero</h4>
 
                         <h2>Saving Amount: <span id="saving">000</span> </h2>
                         <h2>Remaining Balance: <span id="remaining">000</span> </h2>
