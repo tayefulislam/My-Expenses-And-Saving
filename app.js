@@ -12,8 +12,8 @@ function getItem(item) {
 
 // set innetTex
 function setInnerText(item, value) {
-
     let itemText = document.getElementById(item);
+
     itemText.innerText = value;
 }
 
@@ -27,10 +27,29 @@ function calculate() {
     let totalEx = food + rent + cloths;
     let balance = sum(income, totalEx);
 
-    // set inner text
-    setInnerText('total-ex', totalEx);
-    setInnerText('balance', balance)
+    if (isNaN(income) || isNaN(totalEx)) {
+        document.getElementById('valid-number').style.display = 'block';
+    }
+    else if (income < 0 || food < 0 || cloths < 0 || rent < 0) {
+        document.getElementById('valid-number').style.display = 'block';
+    }
 
+    else {
+
+        if (income < totalEx) {
+            document.getElementById('small-number').style.display = 'block';
+            document.getElementById('valid-number').style.display = 'none';
+        }
+
+        else {
+            document.getElementById('small-number').style.display = 'none';
+            document.getElementById('valid-number').style.display = 'none';
+
+            // set inner text
+            setInnerText('total-ex', totalEx);
+            setInnerText('balance', balance)
+        }
+    }
 }
 
 
@@ -38,13 +57,53 @@ function calculate() {
 
 document.getElementById('save-btn').addEventListener('click', function () {
 
-    let saveInput = getItem('save-input') / 100;
+    let saveInput = getItem('save-input');
     let income = getItem('income');
-    let save = income * saveInput;
+    let save = income * saveInput / 100;
     let balance = parseInt(document.getElementById('balance').innerText);
     let remain = sum(balance, save);
 
-    //set inner text
-    setInnerText('saving', save);
-    setInnerText('remaining', remain);
+
+    if (isNaN(income) || isNaN(saveInput)) {
+
+        document.getElementById('valid-percent').style.display = 'block';
+        document.getElementById('small-percent').style.display = 'none';
+        return;
+
+    }
+
+    else if (income < 0 || save < 0) {
+
+        document.getElementById('valid-percent').style.display = 'block';
+        document.getElementById('small-percent').style.display = 'none';
+
+        return
+
+    }
+
+    else if (remain < 0) {
+        document.getElementById('valid-percent').style.display = 'none';
+
+        document.getElementById('small-percent').style.display = 'block';
+        return;
+
+
+    }
+
+
+
+    else {
+
+        document.getElementById('valid-percent').style.display = 'none';
+        document.getElementById('small-percent').style.display = 'none';
+
+        //set inner text
+        setInnerText('saving', save);
+        setInnerText('remaining', remain);
+
+
+    }
+
+
+
 })

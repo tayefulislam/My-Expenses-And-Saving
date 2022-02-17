@@ -16,7 +16,7 @@ p{
     text-align: center;
 }
 
-h3{
+h3,h4{
     margin-top: 10px;
     text-align: center;
     font-weight: 600;
@@ -70,8 +70,12 @@ button{
 
 }
 
+/* error */
 
 
+h4{
+    display: none;
+}
 
 
 
