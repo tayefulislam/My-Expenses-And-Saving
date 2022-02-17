@@ -37,12 +37,14 @@ input{
     padding: 8px;
     margin-top: 10px;
     border: 0; 
-
-    
    
 }
 
-/* img section */
+.input-save{
+    width: 70px;
+}
+
+
 
 
 

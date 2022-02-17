@@ -54,27 +54,30 @@
 
                         <h3>Income</h3>
                         <p>Income:
-                            <input id="income" type="text" value="1000">
+                            <input id="income" type="text" value="10000">
                         </p>
 
 
                         <h3>Expenses</h3>
 
-                        <p>Food: <input type="text" value="500">
+                        <p>Food: <input id="food" type="text" value="3000">
                         </p>
-                        <p>Rent: <input type="text" value="300"></p>
-                        <p>Clothes: <input type="text" value="400">
+                        <p>Rent: <input id="rent" type="text" value="2000"></p>
+
+                        <p>Clothes: <input id="cloths" type="text" value="500">
                         </p>
-                        <p><button class="btn-center">Calculate</button>
+                        <p><button onclick="calculate()" id="calc-btn" class="btn-center">Calculate</button>
                         </p>
-                        <h2>Total Expenses: <span>5000</span></h2>
-                        <h2>Balance: <span>4500</span></h2>
+                        <h2>Total Expenses: <span id="total-ex">00</span></h2>
+                        <h2>Balance: <span id="balance">00</span></h2>
 
 
-                        <p>Save : <input type="text">%<button>Save</button></p>
+                        <p>Save : <input id="save-input" class="input-save" type="text" value="20">%<button
+                                id="save-btn">Save</button>
+                        </p>
 
-                        <h2>Saving Amount: 2000 </h2>
-                        <h2>Remaining Balance: 2500 </h2>
+                        <h2>Saving Amount: <span id="saving">000</span> </h2>
+                        <h2>Remaining Balance: <span id="remaining">000</span> </h2>
 
                     </div>
 
@@ -84,6 +87,7 @@
 
     </main>
 
+    <script src="app.js"></script>
 </body>
 
 </html>
