@@ -7,7 +7,7 @@ function sum(num1, num2) {
 }
 
 //getitem: input value
-function getItem(item) {
+function getInput(item) {
     let itemValue = document.getElementById(item).value;
     return Number(itemValue);
 }
@@ -19,18 +19,18 @@ function setInnerText(item, value) {
 }
 
 // check error funtion
-function errorCheck(eName, valuee) {
-    document.getElementById(eName).style.display = valuee;
+function errorCheck(errorName, value) {
+    document.getElementById(errorName).style.display = value;
 
 }
 
 // calculate function
 function calculate() {
 
-    let income = getItem('income');
-    let food = getItem('food');
-    let rent = getItem('rent');
-    let cloths = getItem('cloths');
+    let income = getInput('income');
+    let food = getInput('food');
+    let rent = getInput('rent');
+    let cloths = getInput('cloths');
 
     let totalEx = food + rent + cloths;
     let balance = sum(income, totalEx);
@@ -73,12 +73,12 @@ function calculate() {
 }
 
 
-// saving calculate by eventlisner
+// saving calculate by addeventlisner
 
 document.getElementById('save-btn').addEventListener('click', function () {
 
-    let saveInput = getItem('save-input');
-    let income = getItem('income');
+    let saveInput = getInput('save-input');
+    let income = getInput('income');
     let save = income * saveInput / 100;
     let balance = parseInt(document.getElementById('balance').innerText);
     let remain = sum(balance, save);
