@@ -9,14 +9,8 @@ function sum(num1, num2) {
 //getitem: input value
 function getItem(item) {
     let itemValue = document.getElementById(item).value;
-
-    // return parseFloat(itemValue);
-    return Number(itemValue)
-
-
-
+    return Number(itemValue);
 }
-
 
 // set innetTex
 function setInnerText(item, value) {
@@ -101,7 +95,8 @@ document.getElementById('save-btn').addEventListener('click', function () {
         return;
     }
 
-    else if (remain < 0) {
+
+    else if (balance < save) {
         // error hide and show
         errorCheck('valid-percent', 'none')
         errorCheck('small-percent', 'block')
@@ -110,26 +105,16 @@ document.getElementById('save-btn').addEventListener('click', function () {
         setInnerText('remaining', 0);
         return;
 
-
     }
 
-
-
     else {
-
         // error hide and show
         errorCheck('valid-percent', 'none')
         errorCheck('small-percent', 'none')
-
-
-
-
         // setInnerText
         setInnerText('saving', save);
         setInnerText('remaining', remain);
 
     }
-
-
 
 })
