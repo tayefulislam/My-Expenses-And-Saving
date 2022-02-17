@@ -29,9 +29,13 @@ function calculate() {
 
     if (isNaN(income) || isNaN(totalEx)) {
         document.getElementById('valid-number').style.display = 'block';
+        setInnerText('total-ex', 0);
+        setInnerText('balance', 0)
     }
     else if (income < 0 || food < 0 || cloths < 0 || rent < 0) {
         document.getElementById('valid-number').style.display = 'block';
+        setInnerText('total-ex', 0);
+        setInnerText('balance', 0)
     }
 
     else {
@@ -39,6 +43,8 @@ function calculate() {
         if (income < totalEx) {
             document.getElementById('small-number').style.display = 'block';
             document.getElementById('valid-number').style.display = 'none';
+            setInnerText('total-ex', 0);
+            setInnerText('balance', 0)
         }
 
         else {
@@ -68,6 +74,8 @@ document.getElementById('save-btn').addEventListener('click', function () {
 
         document.getElementById('valid-percent').style.display = 'block';
         document.getElementById('small-percent').style.display = 'none';
+        setInnerText('saving', 0);
+        setInnerText('remaining', 0);
         return;
 
     }
@@ -76,6 +84,8 @@ document.getElementById('save-btn').addEventListener('click', function () {
 
         document.getElementById('valid-percent').style.display = 'block';
         document.getElementById('small-percent').style.display = 'none';
+        setInnerText('saving', 0);
+        setInnerText('remaining', 0);
 
         return
 
@@ -85,6 +95,8 @@ document.getElementById('save-btn').addEventListener('click', function () {
         document.getElementById('valid-percent').style.display = 'none';
 
         document.getElementById('small-percent').style.display = 'block';
+        setInnerText('saving', 0);
+        setInnerText('remaining', 0);
         return;
 
 
@@ -101,9 +113,6 @@ document.getElementById('save-btn').addEventListener('click', function () {
         setInnerText('saving', save);
         setInnerText('remaining', remain);
 
-
     }
-
-
 
 })
